@@ -1,10 +1,11 @@
 {
   "name": "FirstMate",
   "version": "0.1.0",
-  "description": "",
+  "description": "Any port in a storm.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p",
+    "run": "heroku local"
   },
   "keywords": [],
   "author": "Kiel Barry and Nicholas Dunham",
@@ -29,5 +30,12 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14"
+  },
+  "engines": {
+    "node": "4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NicholasDunham/first-mate.git"
   }
 }
