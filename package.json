@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -p",
-    "run": "heroku local"
+    "start": "heroku local"
   },
   "keywords": [],
   "author": "Kiel Barry and Nicholas Dunham",
