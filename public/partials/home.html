@@ -13,17 +13,16 @@
         ng-options="nat as nat for nat in nationalities">
 </select>
 
-<!-- prepopulate with cities -->
   <div>Select your port of call:</div>
   <select ng-options="port as port for port in ports" ng-model="user.citySelect">
   </select>
 
 <button type="submit" ng-click="getSeamen()">Find the balance for yer ballast!</button>
 
-<!-- members in area -->
+<!-- members in area
 <div ngShow="user.citySelect && user.nationalitySelect" ng-cloak>
   There are a total of {{ $scope.areaCount }} first mates in your area!
-</div>
+</div> -->
 
 Results:
 <md-card ng-repeat="bargemaster in profileObjects" ng-cloak>
