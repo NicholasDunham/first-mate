@@ -12,6 +12,10 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.1",
+    "angular-animate": "^1.5.1",
+    "angular-aria": "^1.5.1",
+    "angular-material": "^1.0.6",
+    "angular-messages": "^1.5.1",
     "angular-resource": "^1.5.1",
     "angular-ui-router": "^0.2.18",
     "body-parser": "^1.15.0",

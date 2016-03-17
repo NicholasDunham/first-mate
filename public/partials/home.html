@@ -1,59 +1,47 @@
 <h1>Choose your first mate! <sup>***</sup></h1>
-<h3>There are plenty of seamen for ya, Bargemaster, before ye set sail with yer cocket!
-  No bottomry required! Ne'er a demurrage for ye - ready yer jackstaff and man the poop deck!
-</h3>
-<h6>
-  <em>Terms and conditions apply:
-    it's the motion of the ocean and not the size of your coxswain
-  </em>
-</h6>
+<h3>Ye've a few choices to make, Bargemaster, before ye set sail with yer
+  cocket!</h3>
+<h4>At First Mates, no bottomry is ever required. Have no fear of demurrage—just
+  ready yer jackstaff, clear the poop deck, and prepare to be boarded!</h4>
+<h6><em>Terms and conditions may apply. And remember: it's not the size of the
+  coxswain, it's the motion of the ocean.</em></h6>
+
+<h3>Now then—how do ye like yer seamen?</h3>
+<div>Choose your preferred accent:</div>
+<select ng-model="user.nationalitySelect"
+        ng-change="getPorts()"
+        ng-options="nat as nat for nat in nationalities">
+</select>
 
 <!-- prepopulate with cities -->
-<div ngShow="!user.citySelect">
-  <div>please choose your hometown!</div>
-  <select ngOptions="for city in cityList" ng-model="user.citySelect">
-    <option value=""> -- none selected --</option>
+  <div>Select your port of call:</div>
+  <select ng-options="port as port for port in ports" ng-model="user.citySelect">
   </select>
-</div>
-<!-- prepopulate with nationality -->
-<div ngHide="!user.citySelect">
-  <div>please choose an accent </div>
-  <select ngOptions="for nationality in nationalityList" ng-model="user.nationalitySelect">
-    <option value=""> -- none selected --</option>
-    <option value=""> asdfdsa</option>
-  </select>
-</div>
 
-<button type="submit">Find the balance for your ballast!</button>
+<button type="submit" ng-click="getSeamen()">Find the balance for yer ballast!</button>
 
 <!-- members in area -->
-<div ngShow="user.citySelect && user.nationalitySelect">
+<div ngShow="user.citySelect && user.nationalitySelect" ng-cloak>
   There are a total of {{ $scope.areaCount }} first mates in your area!
 </div>
 
-  Results:
-<div ng-repeat="bargemaster in profileObjects">
-  <!--
-  <div>
-    <img src=" {{ bargemaster.url }} ">
-  </div>
-  -->
-  <div>
-    {{ bargemaster.Name1 }}
-  </div>
-  <div>
-    {{ bargemaster.Nationality }}
-  </div>
-  <div>
-    {{ bargemaster.ShipName }}
-  </div>
-  <div>
-    {{ bargemaster.ShipType }}
-  </div>
-  <div>
-    {{ bargemaster.avgDistance }}
-  </div>
-  <div>
-    {{ bargemaster.totalWars }}
-  </div>
+Results:
+<md-card ng-repeat="bargemaster in profileObjects" ng-cloak>
+  <md-card-title>
+    <md-card-title-text>{{ bargemaster.Name }}</md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>{{ bargemaster.Rank }} <span ng-if="bargemaster.Rank===''">Commander</span>
+      of the mighty {{ bargemaster.Nationality }}
+      {{ bargemaster.ShipType }} <span ng-if="bargemaster.ShipType===''">ship</span>
+      <em>{{ bargemaster.ShipName }}<span ng-if="bargemaster.ShipName===''">Unknown</span></em>.</p>
+    <p>Average nautical miles travelled per day: {{ bargemaster.avgDistance }}</p>
+    <p>Battles fought: {{ bargemaster.totalWars }}</p>
+  </md-card-content>
+</md-card>
+<!--
+<div>
+  <img src=" {{ bargemaster.url }} ">
+</div>
+-->
 </div>

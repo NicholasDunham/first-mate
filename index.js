@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Routes:
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/seamen', require('./routes/seamen'));
+app.use('/ports', require('./routes/ports'));
 
 app.listen(app.get('port'), function() {
   console.log('Node is running on port', app.get('port'));
