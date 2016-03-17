@@ -38,7 +38,7 @@ angular.module('first-mate', [
   .controller('homeCtrl', ['$scope', 'SeamenFactory', function($scope, SeamenFactory) {
     console.log('Running homeCtrl.');
     SeamenFactory.query(function(response) {
-      $scope.seamen = response;
-      console.log($scope.seamen);
+      $scope.profileObjects = response;
+      console.log($scope.profileObjects);
     });
   }]);
